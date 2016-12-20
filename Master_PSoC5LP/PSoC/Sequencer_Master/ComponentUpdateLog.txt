@@ -1,0 +1,9 @@
+Last Modified Date & Time: 11/19/2015 02:30:44
+
+Sequencer_Master_CQ_PSoC5LP_HD44780: Sequencer_Master_CQ_PSoC5LP_HD44780.cydwr
+	cy_boot [v4.20] to [v5.20]
+
+Sequencer_Master_PSoC5LP_ProtoKit_HD44780: Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydwr
+	cy_boot [v4.20] to [v5.20]
+
+
