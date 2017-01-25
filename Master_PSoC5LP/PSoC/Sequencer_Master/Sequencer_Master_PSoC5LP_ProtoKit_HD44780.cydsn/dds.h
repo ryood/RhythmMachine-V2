@@ -71,6 +71,7 @@ struct track {
 };
 
 typedef uint16_t (*NOISE_GEN_FUNC_PTR)();
+typedef void (*NOTE_UPDATE_FUNC_PTR)();
 
 void initTracks(struct track *tracks);
 void initDDSParameter(struct track* tracks);
@@ -81,6 +82,7 @@ fp32 generateWave(struct track *tracks);
 int getNoteCount();
 void setNoiseGenFuncWhite(NOISE_GEN_FUNC_PTR _noiseGenFunc);
 void setNoiseGenFuncBule(NOISE_GEN_FUNC_PTR _noiseGenFunc);
+void setNoteUpdeteFunc(NOTE_UPDATE_FUNC_PTR _noteUpdateFunc);
 
 #endif // _DDS_H_
 

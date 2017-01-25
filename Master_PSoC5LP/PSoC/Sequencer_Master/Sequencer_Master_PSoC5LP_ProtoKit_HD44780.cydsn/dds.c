@@ -43,6 +43,10 @@ static int noteCount = 0;
 static NOISE_GEN_FUNC_PTR noiseGenFuncWhite;
 static NOISE_GEN_FUNC_PTR noiseGenFuncBlue;
 
+//-------------------------------------------------
+// ノート更新通知
+static NOTE_UPDATE_FUNC_PTR noteUpdateFunc;
+
 //=================================================
 // getter / setter
 // 
@@ -60,6 +64,11 @@ void setNoiseGenFuncWhite(NOISE_GEN_FUNC_PTR _noiseGenFunc)
 void setNoiseGenFuncBule(NOISE_GEN_FUNC_PTR _noiseGenFunc)
 {
     noiseGenFuncBlue = _noiseGenFunc;
+}
+
+void setNoteUpdeteFunc(NOTE_UPDATE_FUNC_PTR _noteUpdateFunc)
+{
+    noteUpdateFunc = _noteUpdateFunc;
 }
 
 //=================================================
@@ -157,17 +166,6 @@ void setTrack(struct track *tracks, int track_n, struct sequencer_parameter *par
     }
 }
 
-#if 0
-//=================================================
-// フィルター
-//
-//=================================================
-void setFilterRoutine(FILTER16_FUNC_PTR _filterFunc)
-{
-    filterFunc = _filterFunc;
-}
-# endif
-
 //=================================================
 // 波形の生成
 //
@@ -191,74 +189,6 @@ fp32 generateDDSWave(uint32_t *phaseRegister, uint32_t tuningWord, const fp32 *l
 	return waveValue;
 }
 
-#if 0
-// 乱数生成
-// Return: uint32_t: 0..0xFFFFの乱数
-//
-#define MY_RAND_MAX (0xFFFF)
-static uint32_t next = 1;
-uint32_t my_rand(void)
-{
-	next = next * 1103515245 + 12345;
-	return (uint32_t)(next >> 16) & MY_RAND_MAX;
-}
-
-//-------------------------------------------------
-// 乱数生成
-// return: fp32型の-1.0 .. 1.0の乱数
-//
-fp32 generateNoise()
-{
-    int32_t r, v;
-	fp32 fv;
-	
-    //r = my_rand();
-    r = rand() >> 15;
-    v = (r & 0x8000) ? (0xffff0000 | (r << 1)) : (r << 1);
-	fv = (fp32)v;
-
-    return fv;
-}
-
-//-------------------------------------------------
-// フィルターされた乱数生成
-// return: fp32型の-1.0 .. 1.0の乱数
-//
-fp32 generateFilteredNoise()
-{
-    int32_t r, filtered_r, v;
-    fp32 fv;
-	
-    // Debug用
-    //UART_printf(1, "generateFilteredNoise()");
-    
-    //r = my_rand();
-    r = rand() >> 15;
-    
-    // Debug用
-    //UART_printf("%d\t", r);
-    
-    filtered_r = (filterFunc)((int16_t)r);
-    
-    // Debug用
-    //UART_printf("%d\t", filtered_r);
-    
-    r = (r & 0x8000) | (filtered_r >> 1);
-    
-    // Debug用
-    //UART_printf("%d\t", r);
-    
-    v = (r & 0x8000) ? (0xffff0000 | (r << 1)) : (r << 1);
-    
-    // Debug用
-    //UART_printf("%d\r\n", v);
-    
-	fv = (fp32)v;
-
-    return fv;
-}
-# endif
-
 //-------------------------------------------------
 // 波形生成ルーチン
 // return: fp32型の波形値 
@@ -273,6 +203,8 @@ fp32 generateWave(struct track *tracks)
 	if (tick >= ticksPerNote) {
 	    noteCount++;
 
+        (noteUpdateFunc)();
+        
 		// noteの先頭でtickをリセット
 		tick = 0;
 

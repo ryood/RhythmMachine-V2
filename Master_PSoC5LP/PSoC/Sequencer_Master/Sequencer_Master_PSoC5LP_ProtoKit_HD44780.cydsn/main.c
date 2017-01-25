@@ -1,28 +1,9 @@
 /* ========================================
  *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
+ * RhythmMachine
+ *   PSoC 5LP Prototyping Kit
  *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
-　* 2015.11.28 ノイズ生成ルーチンをDDSモジュールから除外
- * 2015.11.23 シーケンス表示をカスタムフォントに変更
- * 2015.11.23 RGB_LEDのピンアサインを変更
- * 2015.11.20 Filterを追加
- * 2015.11.19 ピンアサインを変更、Tact Switchを2個に変更
- * 2015.11.19 Tact Switchの読み取りを追加
- * 2015.11.17 Levelの重み付けを修正
- * 2015.11.17 Toneの設定を修正
- * 2015.11.15 波形をLED表示用に出力
- * 2015.11.15 Track数を8に変更
- * 2015.11.15 VDAC8からの出力をインプリメント
- * 2015.11.13 ロータリーエンコーダをインプリメント
- * 2015.11.13 Master Clockを72MHzに変更
- * 2015.11.13 PSoC 5LP Prototyping Kitに移植
- * 2015.11.13 Sampling Timerをインプリメント
- * 2015.11.13 Sequencer Board, Char LCDをインプリメント
+ * 2017.01.25 V2
  * 2015.11.12 新規作成
  *
  * ========================================
@@ -36,8 +17,8 @@
 #include "WaveTableFP32.h"
 #include "ModTableFP32.h"
 
-#define TITLE_STR   ("Rhythm Machine")
-#define VERSION_STR ("2015.11.28")
+#define TITLE_STR   ("Rhythm Machine 2")
+#define VERSION_STR ("2017.01.25")
 
 // Sequencer
 //
@@ -114,7 +95,7 @@ struct track tracks[TRACK_N];
 uint8 isREDirty;
 
 //-------------------------------------------------
-// 
+// Ext Tact Switches
 //
 uint8 tactSwitch;
 
@@ -460,7 +441,7 @@ CY_ISR(Timer_Sampling_interrupt_handler)
     uint8 i8v, i8v_plus;
     
     // デバッグ用
-    Pin_ISR_Check_Write(1u);
+    //Pin_ISR_Check_Write(1u);
     
     /* Read Status register in order to clear the sticky Terminal Count (TC) bit 
 	 * in the status register. Note that the function is not called, but rather 
@@ -485,7 +466,7 @@ CY_ISR(Timer_Sampling_interrupt_handler)
     }        
     
     // デバッグ用
-    Pin_ISR_Check_Write(0u);
+    //Pin_ISR_Check_Write(0u);
 }
 
 //=================================================
@@ -495,12 +476,6 @@ CY_ISR(Timer_Sampling_interrupt_handler)
 //================================================= 
 void initTracks(struct track *tracks)
 {
- 	//const uint8_t kickSequence[]  = { 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 };
-	//const uint8_t snareSequence[] = { 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 };
-	//const uint8_t hihatCloseSequnce[] = { 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1};
-    //const uint8_t hihatOpenSequence[]  = { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0};
-    const uint8_t allOnSequence[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-    
 	// Kick
 	tracks[0].waveLookupTable = waveTableSine;
 	tracks[0].decayLookupTable = modTableLinerDown01;
@@ -578,48 +553,6 @@ void initTracks(struct track *tracks)
 	tracks[7].toneAmount = 0;
 }
 
-#if 0
-//=================================================
-// フィルター
-//
-//=================================================
-uint16_t filterFunc(uint16_t sample)
-{
-    uint16_t f_sample;
-    
-    // Debug用
-    Pin_Ext_Clock_Write(1u);
-    
-    // Debug用
-    //LCD_printf(1, "filterFunc:0 ");
-    
-    /* Enable the interrupt register bit to poll
-     Value 1 for Channel A, Value 2 for Channel B */
-    Filter_INT_CTRL_REG |= (1 << Filter_CHANNEL_A);
-    
-    Filter_Write16(Filter_CHANNEL_A, sample);
-    
-    // Debug用
-    //LCD_printf(1, "filterFunc:1 ");
-    
-    /* Poll waiting for the holding register to have data to read */
-    while (Filter_IsInterruptChannelA() == 0) ;
-    
-    // Debug用
-    //LCD_printf(1, "filterFunc:2 ");
-    
-    f_sample = Filter_Read16(Filter_CHANNEL_A);
-    
-    // Debug用
-    //LCD_printf(1, "filterFunc:3 ");
-    
-    // Debug用
-    Pin_Ext_Clock_Write(0u);
-    
-    return f_sample;
-}
-#endif
-
 //=================================================
 // ノイズ生成
 //
@@ -653,6 +586,17 @@ uint16_t generateFilteredNoise()
 }
 
 //=================================================
+// Sync信号出力
+//
+//=================================================
+void generateSyncSignal()
+{
+    Pin_ISR_Check_Write(1u);
+    CyDelay(1);
+    Pin_ISR_Check_Write(0u);
+}
+
+//=================================================
 // メインルーチン
 //
 //=================================================
@@ -663,6 +607,7 @@ int main()
     initDDSParameter(tracks);
     setNoiseGenFuncWhite(generateNoise);
     setNoiseGenFuncBule(generateFilteredNoise);
+    setNoteUpdeteFunc(generateSyncSignal);
     
     // LCDを初期化
     LCD_Char_Start();
