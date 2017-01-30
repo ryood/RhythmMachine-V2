@@ -591,9 +591,9 @@ uint16_t generateFilteredNoise()
 //=================================================
 void generateSyncSignal()
 {
-    Pin_ISR_Check_Write(1u);
+    Pin_SPI_EX2_Write(1u);
     CyDelay(1);
-    Pin_ISR_Check_Write(0u);
+    Pin_SPI_EX2_Write(0u);
 }
 
 //=================================================
