@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\Header Files\dds.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydwr">
 <ExpandedNodeIds>
 <v>Sequencer_Master</v>
 <v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780</v>
@@ -351,53 +351,6 @@
 <VisibleNodeIds>
 <v>Sequencer_Master</v>
 <v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Clock_RE.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Clock_SW.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\CyScBoostClk.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\CySpc.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\dds.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Filter.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Filter_Coefficients.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Filter_PM.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Filter_PVT.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Filter_RAM_Data.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\I2CM_Sequencer.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\I2CM_Sequencer_BOOT.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\I2CM_Sequencer_INT.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\I2CM_Sequencer_MASTER.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\I2CM_Sequencer_PM.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\I2CM_Sequencer_SLAVE.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\ISR_Timer_Sampling.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_Char.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_Char_CustChars.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_Char_LCDPort.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_Char_PM.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\LED_RGB.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\main.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Opamp_1.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Opamp_1_PM.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Opamp_2.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Opamp_2_PM.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Pin_Ext_Clock.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Pin_ISR_Check.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Pin_RE1.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Pin_RE1_in.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Pin_RE2.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Pin_RE2_in.lst</v>
-<v>Sequencer_Master\Sequencer_Master_PSoC5LP_ProtoKit_HD44780\CortexM3\ARM_GCC_493\Debug\Listing Files\Pin_RE3.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -452,13 +405,8 @@
 <name v=".\Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydsn\main.c" />
 <name v=".\Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydsn\dds.c" />
-<name v=".\Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydsn\Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydwr" />
 <name v=".\Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydsn\dds.h" />
-<name v=".\Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydsn\WaveTableFp32.h" />
-<name v=".\Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydsn\ModTableFp32.h" />
-<name v=".\Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydsn\utility.c" />
-<name v=".\Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydsn\utility.h" />
-<name v=".\Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydsn\fixedpoint.h" />
+<name v=".\Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydsn\Sequencer_Master_PSoC5LP_ProtoKit_HD44780.cydwr" />
 </OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />

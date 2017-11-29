@@ -203,7 +203,7 @@ fp32 generateWave(struct track *tracks)
 	if (tick >= ticksPerNote) {
 	    noteCount++;
 
-        (noteUpdateFunc)();
+        (noteUpdateFunc)(noteCount);
         
 		// noteの先頭でtickをリセット
 		tick = 0;
@@ -247,6 +247,9 @@ fp32 generateWave(struct track *tracks)
 		//************************************************************************
 		switch (i) {
 		case 0:	// kick
+            // KIK01へ出力。DDS出力は抑止
+            tracks[i].waveValue = int_to_fp32(0);
+            break;
 		case 1:	// snare
 		case 4:	// low tom
 		case 5:	// mid tom

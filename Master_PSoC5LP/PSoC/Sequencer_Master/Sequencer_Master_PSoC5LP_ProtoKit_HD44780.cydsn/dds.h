@@ -71,7 +71,7 @@ struct track {
 };
 
 typedef uint16_t (*NOISE_GEN_FUNC_PTR)();
-typedef void (*NOTE_UPDATE_FUNC_PTR)();
+typedef void (*NOTE_UPDATE_FUNC_PTR)(uint16_t noteCount);
 
 void initTracks(struct track *tracks);
 void initDDSParameter(struct track* tracks);

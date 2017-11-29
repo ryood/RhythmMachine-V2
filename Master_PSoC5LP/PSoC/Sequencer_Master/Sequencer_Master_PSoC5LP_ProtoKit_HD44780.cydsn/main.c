@@ -3,6 +3,7 @@
  * RhythmMachine
  *   PSoC 5LP Prototyping Kit
  *
+ * 2017.11.29 Kick Noteを出力
  * 2017.01.25 V2
  * 2015.11.12 新規作成
  *
@@ -18,7 +19,7 @@
 #include "ModTableFP32.h"
 
 #define TITLE_STR   ("Rhythm Machine 2")
-#define VERSION_STR ("2017.01.25")
+#define VERSION_STR ("2017.11.29")
 
 // Sequencer
 //
@@ -589,11 +590,20 @@ uint16_t generateFilteredNoise()
 // Sync信号出力
 //
 //=================================================
-void generateSyncSignal()
+void generateSyncSignal(uint16_t noteCount)
 {
-    Pin_SPI_EX2_Write(1u);
+    // Sync信号を出力
+    Pin_SPI_EX1_Write(1u);
+    
+    // Kick信号を出力
+    if (tracks[0].sequence[noteCount % 16] > 0) {
+        Pin_SPI_EX2_Write(1u);
+    }
+    
     CyDelay(1);
+    
     Pin_SPI_EX2_Write(0u);
+    Pin_SPI_EX1_Write(0u);
 }
 
 //=================================================
